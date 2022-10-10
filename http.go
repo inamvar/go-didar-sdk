@@ -2,6 +2,7 @@ package didar
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -12,7 +13,7 @@ import (
 var API_KEY = "<your api key>"
 var BASE_URL = "https://app.didar.me/api"
 
-func makeRequest(path string, method string, data any) (*http.Request, error) {
+func makeRequest(context context.Context, path string, method string, data any) (*http.Request, error) {
 
 	jsonBody, err := json.Marshal(data)
 	if err != nil {
@@ -24,7 +25,7 @@ func makeRequest(path string, method string, data any) (*http.Request, error) {
 
 	url := fmt.Sprintf("%s/%s?apikey=%s", BASE_URL, path, API_KEY)
 
-	req, err := http.NewRequest(method, url, bodyReader)
+	req, err := http.NewRequestWithContext(context, method, url, bodyReader)
 
 	if err != nil {
 		return nil, err

@@ -7,7 +7,7 @@ import (
 )
 
 func SaveContact(context context.Context, request *ContactRequest) (*ContactResponse, error) {
-	req, err := makeRequest("contact/save", http.MethodPost, request)
+	req, err := makeRequest(context, "contact/save", http.MethodPost, request)
 	if err != nil {
 		return nil, err
 	}
