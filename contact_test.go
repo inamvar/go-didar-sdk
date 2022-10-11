@@ -10,7 +10,6 @@ import (
 
 func TestCreateContact(t *testing.T) {
 
-	didar.API_KEY = "ueqlsgciuodky4ph8irv7asl1jy0f5yz"
 	didar.API_KEY = "<API_KEY>"
 	request := &didar.ContactRequest{
 		Contact: didar.Contact{
