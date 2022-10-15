@@ -37,6 +37,7 @@ type Deal struct {
 	RegisterDate    *time.Time `json:"RegisterDate"`
 	DealItems       []DealItem `json:"DealItems"`
 	PipelineStageId string     `json:"PipelineStageId"`
+	Fields          Fields     `json:"Fields"`
 }
 type DealItem struct {
 	Description string  `json:"Description"`
@@ -44,10 +45,9 @@ type DealItem struct {
 	ProductId   string  `json:"ProductId"`
 	Quantity    float64 `json:"Quantity"`
 	UnitPrice   int64   `json:"UnitPrice"`
-	Fields      Fields  `json:"Fields"`
 }
 type DealRequest struct {
-	Deal Deal `json:"deal"`
+	Deal Deal `json:"Deal"`
 }
 
 type DealResponse struct {
